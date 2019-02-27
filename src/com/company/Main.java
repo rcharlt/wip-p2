@@ -91,9 +91,12 @@ public class Main {
                 if(showChoice == 1){
                     System.out.println(info.toString());
                 } else{
-                    System.out.println("Enter the priority number you would like to view (1-4)");
+                    System.out.println("Enter the priority number you would like to view (0-5)");
                     int priorityView = a.nextInt();
-                    if(priorityView == 1){
+                    if(priorityView == 0){
+                        System.out.println(toDo.getPriority());
+                        System.out.println(toDo.getTitle());
+                    }else if(priorityView == 1){
                         System.out.println(toDo.getPriority());
                         System.out.println(toDo.getTitle());
                     }else if(priorityView == 2){
@@ -103,6 +106,9 @@ public class Main {
                         System.out.println(toDo.getPriority());
                         System.out.println(toDo.getTitle());
                     }else if(priorityView == 4){
+                        System.out.println(toDo.getPriority());
+                        System.out.println(toDo.getTitle());
+                    }else if(priorityView == 5){
                         System.out.println(toDo.getPriority());
                         System.out.println(toDo.getTitle());
                     } else{
