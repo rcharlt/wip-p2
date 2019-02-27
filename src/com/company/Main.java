@@ -1,5 +1,5 @@
 package com.company;
-
+// Rylee Charlton, 2/27/2019, project 2
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -30,6 +30,7 @@ public class Main {
         ToDo toDo = new ToDo(toTitle, toDesc, toPriority);
 
 
+        //task chooser
         while (personOption != 0) {
             System.out.println("What would you like to do?");
             System.out.println("(1)- Add task. ");
@@ -37,6 +38,8 @@ public class Main {
             System.out.println("(3)- Edit a task.");
             System.out.println("(4)- View full to-do list.");
             System.out.println("(0)- Exit ");
+
+         //catch invalid inputs
             while (!input.hasNextInt()) {
                 System.out.println("Invalid input\nPlease try again, enter an integer value:");
                 input.next();
@@ -64,12 +67,15 @@ public class Main {
                     ToDo toDoo = new ToDo(toTitle, toDesc, toPriority);
                     info.put(toTitle, toDoo);
                 }
+
+                //remove a task
                 } else if (personOption == 2) {
                     System.out.println("Enter a task name to remove it from the list.");
                     titleGet = get.nextLine();
                     info.remove(titleGet);
                     System.out.println(titleGet + " is now removed from the to-do list.");
 
+                    //edit  a task
                 } else  if (personOption == 3){
                 System.out.println("Enter the title of the task you want to edit.");
                 titleGet = get.nextLine();
@@ -84,7 +90,7 @@ public class Main {
                 System.out.println("Enter a new priority: ");
                 String newPri = newP.nextLine();
                 toDo.setPriority(newPri);
-
+//view tasks
             } else if (personOption == 4){
                 System.out.println("Would you like to: (1) show full to-do list (2) view tasks by priority number");
                 int showChoice = show.nextInt();
