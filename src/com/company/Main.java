@@ -23,9 +23,11 @@ public class Main {
         Scanner newD = new Scanner(System.in);
         Scanner newP = new Scanner(System.in);
         Scanner show = new Scanner(System.in);
+        Scanner a = new Scanner(System.in);
 
 
         Map<String, ToDo> info = new HashMap<>();
+        ToDo toDo = new ToDo(toTitle, toDesc, toPriority);
 
 
         while (personOption != 0) {
@@ -39,7 +41,6 @@ public class Main {
                 System.out.println("Invalid input\nPlease try again, enter an integer value:");
                 input.next();
             }
-            ToDo toDo = new ToDo(toTitle, toDesc, toPriority);
             personOption = input.nextInt();
 
             if (personOption == 1) {
@@ -60,8 +61,8 @@ public class Main {
                         System.out.println(toPriority + " is not a valid integer. ");
                         toPriority = priority.nextLine();
                     }
-
-                    info.put(toTitle, toDo);
+                    ToDo toDoo = new ToDo(toTitle, toDesc, toPriority);
+                    info.put(toTitle, toDoo);
                 }
                 } else if (personOption == 2) {
                     System.out.println("Enter a task name to remove it from the list.");
@@ -86,12 +87,30 @@ public class Main {
 
             } else if (personOption == 4){
                 System.out.println("Would you like to: (1) show full to-do list (2) view tasks by priority number");
-                int showChoice = input.nextInt();
+                int showChoice = show.nextInt();
                 if(showChoice == 1){
                     System.out.println(info.toString());
                 } else{
-                    System.out.println("Enter the priority number you would like to view (1-5)");
+                    System.out.println("Enter the priority number you would like to view (1-4)");
+                    int priorityView = a.nextInt();
+                    if(priorityView == 1){
+                        System.out.println(toDo.getPriority());
+                        System.out.println(toDo.getTitle());
+                    }else if(priorityView == 2){
+                        System.out.println(toDo.getPriority());
+                        System.out.println(toDo.getTitle());
+                    }else if(priorityView == 3){
+                        System.out.println(toDo.getPriority());
+                        System.out.println(toDo.getTitle());
+                    }else if(priorityView == 4){
+                        System.out.println(toDo.getPriority());
+                        System.out.println(toDo.getTitle());
+                    } else{
+                        System.out.println("That is not a valid input.");
+                    }
                 }
+            } else {
+                System.out.println("That is not a valid input.");
             }
             }
         }
