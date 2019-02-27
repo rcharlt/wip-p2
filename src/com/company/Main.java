@@ -22,6 +22,7 @@ public class Main {
         Scanner newT = new Scanner(System.in);
         Scanner newD = new Scanner(System.in);
         Scanner newP = new Scanner(System.in);
+        Scanner show = new Scanner(System.in);
 
 
         Map<String, ToDo> info = new HashMap<>();
@@ -71,20 +72,26 @@ public class Main {
                 } else  if (personOption == 3){
                 System.out.println("Enter the title of the task you want to edit.");
                 titleGet = get.nextLine();
-                String val = info.get(titleGet).toString();
+                info.remove(titleGet);
                 System.out.println("Enter a new title: ");
                 String newTitle = newT.nextLine();
+                info.put(newTitle, toDo);
                 toDo.setTitle(newTitle);
                 System.out.println("Enter a new description: ");
                 String descGet = newD.nextLine();
                 toDo.setDescription(descGet);
                 System.out.println("Enter a new priority: ");
                 String newPri = newP.nextLine();
-                toDo.setDescription(newPri);
+                toDo.setPriority(newPri);
 
-
-                } else if(personOption == 4){
-                System.out.println(info.toString());
+            } else if (personOption == 4){
+                System.out.println("Would you like to: (1) show full to-do list (2) view tasks by priority number");
+                int showChoice = input.nextInt();
+                if(showChoice == 1){
+                    System.out.println(info.toString());
+                } else{
+                    System.out.println("Enter the priority number you would like to view (1-5)");
+                }
             }
             }
         }
